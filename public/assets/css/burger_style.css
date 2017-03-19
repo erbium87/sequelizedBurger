@@ -1,0 +1,22 @@
+body {
+	background-color: #FF8C00;
+	text-align: center;
+}
+
+.foodpic {
+	max-width: 25%;
+	max-height: 25%;
+	display: block;
+    margin: auto;
+}
+
+ul {
+  position:relative;
+  display: inline-block;  
+  list-style: none;
+  width:100%;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+}
+
