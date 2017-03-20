@@ -54,22 +54,22 @@ app.post("/", function(req, res) {
     burger_name: req.body.burger_name,
     // devoured: req.body.devoured
   }).then(function(dbBurger) {
-    res.render("index", dbBurger);
+    // res.render("index", dbBurger);
+    res.redirect("/");
   }); 
 });
 
 app.put("/:id", function(req, res) {
  db.Burgers.update({
-      burger_name: req.body.burger_name,
+      // burger_name: req.body.burger_name,
       devoured: req.body.devoured
     }, {
       where: {
         id: req.params.id
       }
     }).then(function(dbBurger) {
-      res.render("index", {
-        Burgers: dbBurger}
-      );
+      // res.render("index", dbBurger);
+      res.redirect("/");
     });
 });
 };
