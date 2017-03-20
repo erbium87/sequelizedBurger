@@ -41,8 +41,9 @@ app.get("/", function(req, res) {
   db.Burgers.findAll({
   }).then(function(dbBurger) {
     res.render("index", {
-      burger_name: req.body.burger_name,
-      devoured: req.body.devoured
+      Burgers: dbBurger
+      // burger_name: req.body.burger_name,
+      // devoured: req.body.devoured
     });
     // res.json(dbBurger);
   });
@@ -51,7 +52,7 @@ app.get("/", function(req, res) {
 app.post("/", function(req, res) {
   db.Burgers.create({
     burger_name: req.body.burger_name,
-    devoured: req.body.devoured
+    // devoured: req.body.devoured
   }).then(function(dbBurger) {
     res.render("index", dbBurger);
   }); 
@@ -63,10 +64,12 @@ app.put("/:id", function(req, res) {
       devoured: req.body.devoured
     }, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(dbBurger) {
-      res.render("index", dbBurger);
+      res.render("index", {
+        Burgers: dbBurger}
+      );
     });
 });
 };
